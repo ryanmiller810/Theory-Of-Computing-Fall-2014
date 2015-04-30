@@ -1,0 +1,16 @@
+Project 2 – PDA – Written Assignment
+	In this assignment, we were asked to design a PDA simulator in order to accept specific strings of ifs and elses. Based on my interpretation of the project description, you can have matched pairs of ifs or matched pairs of ifs-elses. However, you may not have elses if no ifs exist. Given these instructions, I began to design my program.
+	Initially, I wanted to verify that my input file “sequence.txt” was being read into the program correctly. I wanted to take advantage of the built in string class so I saved the input into a string called sequence. I knew I wanted to look for the first character of an if or of an else. Therefore, I broke apart the sequence string into characters and compared specific characters within a switch statement. If the switch found an ‘i’, the program would either push the ‘i’ onto the stack or if an ‘i’ already existed on the stack, the ‘i’ would be popped from the stack. If the character being compared was an ‘e’, my program verifies that there is an ‘i’ in the stack and would then pop that ‘i’ from the stack. If no ‘i’s were found in the stack, then the program would exit and the reject message would appear. If the program was successful in reading all characters of the sequence string the program then checks the stack to see if it is empty. If the stack is empty, the accept message appears. If the stack still contains elements, then the reject message appears. This is how I designed my PDA simulation.
+Here is the definition of my PDA:
+M = ({q0, q1}, {i, e}, {i, e, z}, δ, q0, z, {q1})
+δ Transition States:
+δ(q0, i, z) = {(q0, iz)}	δ(q0, λ, z) = {(q1, z)}
+δ(q0, i, i) = {(q0, λ)}	
+δ(q0, e, i) = {(q0, λ)}	
+Here is the grammar to generate accepted strings:
+G = (V, T, S, P), where P is, S -> ifSif | ifSelse | ifif | ifelse | λ
+Definition:
+V : {S} is the set of variables
+T : {if, else} is the set of terminals
+S is the start symbol
+P : S -> ifSif | ifSelse | ifif | ifelse | λ 
