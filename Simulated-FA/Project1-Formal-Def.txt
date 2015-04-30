@@ -1,0 +1,10 @@
+Project 1
+For this project, we were assigned the task of creating a password that is between 8 to 10 characters in length. The first five characters had restrictions placed on them. The first character is to be a special character (i.e.: !, ?, *, etc…), the second two characters are to be uppercase letters, and the fourth and fifth characters are to be numbers. 
+For our formal automata, we are restricting the first character entered to be the special character, followed by any combination of the uppercase and numeric required characters for the next four characters, and then any combination of characters for the last three to five characters. If the first character is not a special character, if the second through fifth characters are not a combination of the required characters, or if the length of the password exceeds ten characters, then a transition to an error state will occur.
+Formal Definition:
+M = (Q, Σ, δ, q0, F)
+Q = (q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, qerr)
+Σ = {U, S, D, l}, where U = uppercase character, S = special character, D = numeric character, and l = all characters (including lowercase characters).
+Start State: q0
+Final State: {q8, q9, q10}
+State Transitions (δ): See Back of Attached FA Diagram
